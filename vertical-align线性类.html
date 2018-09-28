@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.dib-baseline{
+				display: inline-block;
+				width: 150px;height: 150px;
+				border: 1px solid #cad5ed;
+				background: #F0F3F9;
+			}
+			.dib-baseline2{
+				display: inline-block;
+				width: 150px;height: 150px;
+				border: 1px solid #cad5ed;
+				background: #F0F3F9;
+				line-height: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+			一个inline-block元素，如果里面没有内联元素，或者overflow不是visible
+			则该元素的基线就是其margin底边缘，否则其基线就是元素里面最后一行内联元素的基线
+		-->
+		<span class="dib-baseline"></span>
+		<span class="dib-baseline">x-baseline</span>
+		<!--
+			因为字符的实际高度是由line-heght决定的，当line-height变成0.字符占据的高度也是0，
+			此时高度的起始位置就变成字符内容区域的垂直中心，于是文字就有一半落在框外。
+			由于文字字符上移，自然基线位置（字母x的底边缘）也往上移动
+		-->
+		<span class="dib-baseline2"></span>
+		<span class="dib-baseline2">x-baseline</span>
+	</body>
+</html>

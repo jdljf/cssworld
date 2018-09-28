@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--
+			margin:auto填充规则
+			如果一侧定值，一侧auto，则auto为剩余空间大小
+			如果两侧都是auto，评分剩余空间
+		-->
+		<div style="width: 300px;height: 30px;">
+			<!--margin-left不写左边距就是0-->
+			<div style="width: 200px;margin-right: 80px;margin-left: auto;height: 100%;"></div>
+		</div>
+		<!--
+			如果想让块级元素右对齐，margin-left:auto才是最佳实践
+		-->
+		<div style="width: 300px;height: 30px;background: gray;">
+			<div style="width: 200px;margin-left: auto;height: 100%;background: red;"></div>
+		</div>
+		<br />
+		<!--
+			margin:auto计算的前提，是width或height为auto时，元素是具有对应方向的自动填充特性
+			但是把送的height变成auto，son的高度不会自动变成200，所有不能垂直居中
+		-->
+		<h1>只能水平居中无法垂直居中</h1>
+		<div style="height: 200px;background: gray;">
+			<div style="width: 100px;margin: auto;background: red;height: 100px;"></div>
+		</div>
+		<h1>垂直居中的方法1.writing-mode改变文档流,但是这样水平无法居中</h1>
+		<div style="height: 200px;writing-mode: vertical-lr;background: gray;">
+			<div style="height: 100px;margin: auto;width: 100px;background: red;"></div>
+		</div>
+		<!--
+			son尺寸表现为“格式化宽度和格式化高度”，和div的“正常流一样”属于外部尺寸
+			就是尺寸自动填充父级元素的可用尺寸
+		-->
+		<h1>同时水平垂直居中2.绝对定位margin:auto</h1>
+		<div style="width: 300px;height: 150px;position: relative;background: gray;">
+			<div style="position: absolute;top: 0;right: 0;left: 0;bottom: 0;
+					width: 200px;height: 100px;margin: auto;background: red;"></div>
+		</div>
+	</body>
+</html>

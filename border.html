@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				width: 150px;
+				height: 150px;
+				overflow: hidden;
+			}
+			.dottec{
+				width: 100%;
+				height: 100%;
+				border: 149px dotted #cd0000;
+			}
+			.icon-menu{
+				width: 120px;
+				height: 20px;
+				border-top: 60px double;
+				border-bottom: 20px solid;
+			}
+			.add{
+				display: inline-block;
+				width: 76px;height: 76px;
+				color: #CCCCCC;
+				border: 2px dashed;
+				text-indent: -12em;
+				transition: color .25s;
+				position: relative;
+				overflow: hidden;
+			}
+			.add::before, .add::after{
+				content: '';
+				position: absolute;
+				top: 50%;
+				left: 50%;
+			}
+			.add::before{
+				width: 20px;
+				border-top: 4px solid;
+				margin: -2px 0 0 -10px;
+			}
+			.add::after{
+				height: 20px;
+				border-left: 4px solid;
+				margin:  -10px 0 0 -2px;
+			}
+			.add:hover{
+				color: #34538b;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>IE8圆角,其本身不支持border-radius，从IE9才开始支持</h1>
+		<div class="box">
+			<div class="dottec"></div>
+		</div>
+		<h1>等比例三道杠</h1>
+		<div class="icon-menu"></div>
+		<h1>当没有指定border-color时，会使用当前元素的color计算值作为边框色</h1>
+		<div style="border: 10px solid;color: red;height: 20px;width: 20px;"></div>
+		<a title="继续上传" href="" class="add"></a>
+	</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.father::after{
+				content: "";
+				display: table;
+				clear: both;
+			}
+			.father img{
+				float: left;
+				width: 60px;height: 64px;
+			}
+			.father + div{
+				margin-top: -2px;
+			}
+		</style>
+	</head>
+	<body>
+		<!--			
+			clear:both的作用本质是让自己不和float元素一行显示，并不是真正的清除浮动，因此float的一些不好的特性依然存在
+		-->
+		
+		<div class="father">
+			<img src="img/1.jpg"/>
+			我是帅哥，好巧啊，我也是帅哥，原来看这本书的人都是帅哥
+		</div>
+		<div>虽然你很帅，但是我对你不敢兴趣。</div>
+	</body>
+</html>

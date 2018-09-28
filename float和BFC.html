@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;margin: 0;
+			}
+			.father{
+				border: 1px solid #444;
+			}
+			.father > img{
+				width: 60px;height: 64px;
+				float: left;
+			}
+			.animal{
+				overflow: hidden;
+			}
+			.animal3{
+				display: table-cell;
+				width: 9999px;
+				/*IE7需要以下代码*/
+				/*display: inline-block;width: auto;*/
+			}
+		</style>
+	</head>
+	<body>
+		<div class="father">
+			<img src="img/1.jpg"/>
+			<p class="animal">小猫1.小猫2，小猫1.小猫2，小猫1.小猫2，小猫1.小猫2，小猫1.小猫2，小猫1.小猫2，小猫1.小猫2，小猫1.小猫2，小猫1.小猫2，小猫1.小猫2，小猫1.小猫2</p>
+		</div>
+		<br />
+		<div class="father">
+			<img src="img/1.jpg"/ style="float: right;">
+			<p class="animal">小猫1.小猫2，小猫1.小猫2，小猫1.小猫2，小猫1.小猫2，小猫1.小猫2，小猫1.小猫2，小猫1.小猫2，小猫1.小猫2，小猫1.小猫2，小猫1.小猫2，小猫1.小猫2</p>
+		</div>
+		<br />
+		<div class="father">
+			<img src="img/1.jpg"/ style="float: right;">
+			<p class="animal3">小猫1.小猫2，小猫1.小猫2，小猫1.小猫2，小猫1.小猫2，小猫1.小猫2，小猫1.小猫2，小猫1.小猫2，小猫1.小猫2，小猫1.小猫2，小猫1.小猫2，小猫1.小猫2</p>
+		</div>
+	</body>
+</html>

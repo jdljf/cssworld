@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+    <!--<img id="img1" src="http://pic1.win4000.com/wallpaper/f/51c3bb99a21ea.jpg">-->
+    <img src="http://pic1.win4000.com/wallpaper/f/51c3bb99a21ea.jpg">
+    <p>loading...</p>
+    <script type="text/javascript">
+      function imgLoad(img, callback) {
+        var timer = setInterval(function() {
+          if (img.complete) {
+            callback(img);
+            clearInterval(timer);
+          }
+        }, 50);
+      }
+      imgLoad(document.getElementsByTagName("img")[0], function() {
+        document.getElementsByTagName("p")[0].innerHTML = '加载完成！';
+      })
+    </script>
+
+</body>
+</html>

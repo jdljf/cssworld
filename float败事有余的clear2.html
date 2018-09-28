@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<style type="text/css">
+			.father{
+				border: 1px solid #444;
+			}
+			.father > img{
+				width: 60px;height: 64px;
+				float: left;
+			}
+			.animal{
+				margin-left: 70px;
+			}
+			.clear{
+				clear: both;
+			}
+			.clear:after{
+				content: "";
+				display: table;
+				clear: both;
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+			clear 属性只有块级 元素有效，而::after等伪元素都是内联元素，
+			这就是借助伪元素清除浮动时影响需要display属性值的原因
+		-->
+		<div class="father">
+			<img src="img/1.jpg"/>
+			<div class="animal">
+				小猫1.小猫2，
+				<div class="clear">
+					小猫3，小猫4，小猫3，小猫4，小猫3，小猫4，小猫3，小猫4，小猫3，小猫4，小猫3，小猫4，小猫3，小猫4，小猫3，小猫4，小猫3，小猫4，小猫3，小猫4，小猫3，小猫4，小猫3，小猫4，小猫3，小猫4，小猫3，小猫4，
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

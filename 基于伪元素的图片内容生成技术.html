@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			img::after{
+				/*生成alt信息*/
+				content: attr(alt);
+				/*尺寸和定位*/
+				position: absolute;
+				bottom: 0;
+				width: 100%;
+				background-color: rgba(0,0,0,.5);
+				transform: translateY(100%);
+				/*来点过度动画效果*/
+				transition: transform .2s;
+			}
+			img:hover::after{
+				/*alt信息显示*/
+				transform: translateY(0);
+			}
+		</style>
+	</head>
+	<body>
+		<div id="" style="position: relative;height: 100px;width: 100px;">
+			<img src="img/edit.png" alt="美女沉思图" id="img"/>
+		</div>
+		
+		<input type="button" name="btn" id="btn value="" />
+	</body>
+	<script type="text/javascript">
+		var btn = document.getElementById('btn');
+		var img = document.getElementById('img');
+		btn.onclick = function () {
+			img.removeAttr('src')
+		}
+	</script>
+</html>

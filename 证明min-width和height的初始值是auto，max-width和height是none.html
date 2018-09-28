@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				transition: min-height .3s;
+			}
+			.box1{
+				min-height: 0px;
+				transition: min-height .3s;
+			}
+			/*.box1:hover{
+				min-height: 300px;
+			}*/
+		</style>
+	</head>
+	<body style="min-width: auto;max-width: auto;">
+		<h1>证明min-width和height的初始值是auto，max-width和height是none</h1>
+		<div id="box" style="background: red;" class="box"></div>
+		<div id="box1" style="background: blue;" class="box1"></div>
+		<input type="button" id="btn" value="box" style="padding: 30px;margin: 30px;"/>
+		<input type="button" id="btn1" value="box1" style="padding: 30px;margin: 30px;"/>
+	</body>
+	<script type="text/javascript">
+		alert('document.body.style.minWidth：' + document.body.style.minWidth) //输出auto
+		alert('document.body.style.maxWidth：' + document.body.style.maxWidth) //输出""
+		var box = document.getElementById('box')
+		var btn = document.getElementById('btn')
+		var box1 = document.getElementById('box1')
+		var btn1 = document.getElementById('btn1')
+		btn1.onclick = function () {
+			box1.style.minHeight = '100px';
+		}
+		btn.onclick = function () {
+			box.style.minHeight = '100px';
+		}
+	</script>
+</html>

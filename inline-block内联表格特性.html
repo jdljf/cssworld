@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.inline-table{
+				display: inline-table;
+				width: 128px;
+				margin-left: 10px;
+				border: 1px solid #000;
+			}
+			.inline-table > p{
+				display: table-cell;	/*没有这个属性第一列和第二列就会变成两行并且两个都自带margin: 16px 0*/
+			}
+		</style>
+	</head>
+	<body>
+		和文字平起平坐的表格：<div class="inline-table">
+			<p>第一列</p>
+			<p>第二列</p>
+		</div>
+	</body>
+</html>

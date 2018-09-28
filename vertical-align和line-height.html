@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--
+			"字母x"和“文字x”都受line-height：32px影响
+			但是对字符而言。font-size越大字符的基线越低，再加上文字默认全都是基线对齐，所有当字号大小
+			不一样的两个文字在一起的时候，会发生位移，如果位移足够大，就会超过行高的限制
+		-->
+		<div style="line-height: 32px;">
+			x<span style="font-size: 24px;">文字x</span>
+		</div>
+		<br />
+		<div>让"幽灵空白节点"和后面span元素字号一样大line-height就是32了</div>
+		<div style="line-height: 32px;font-size: 24px;">
+			x<span>文字x</span>
+		</div>
+		<div>或者改变垂直对齐方式，如顶部对齐</div>
+		<div style="line-height: 32px;">
+			x<span style="font-size: 24px;vertical-align: top;">文字x</span>
+		</div>
+	</body>
+</html>

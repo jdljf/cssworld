@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.counter1{
+				/*计数器名称'wangxiaoer'，默认起始值是2*/
+				counter-reset: wangxiaoer 2;
+				font-size: 32px;
+				font-family: "arial black";
+				color: #CD0000;
+			}
+			.counter1:before{
+				content: counter(wangxiaoer);
+			}
+			
+			.counter2{
+				counter-reset: wangxiaoer 2 wangxiaosan 3;
+				font-size: 32px;
+				font-family: "微软雅黑";
+				color: #CD0000;
+			}
+			.counter2:before{
+				content: counter(wangxiaoer);
+			}
+			.counter2:after{
+				content: counter(wangxiaosan);
+			}
+			
+			.counter3{
+				counter-reset: wangxiaoer 2;
+				counter-increment: wangxiaoer;
+				color: #CD0000;
+			}
+			.counter3:before{
+				content: counter(wangxiaoer);
+			}
+			
+			.counter4{
+				counter-reset: wangxiaoer 2;
+				font-size: 32px;
+				font-family: "微软雅黑";
+				color: #CD0000;
+				counter-increment: wangxiaoer;
+			}
+			.counter4:before{
+				content: counter(wangxiaoer);
+				counter-increment: wangxiaoer;
+			}
+			
+			.counter5{
+				counter-reset: wangxiaoer 2;
+				font-size: 32px;
+				font-family: "微软雅黑";
+				color: #CD0000;
+			}
+			.counter5:before,
+			.counter5:after{
+				content: counter(wangxiaoer);
+				counter-increment: wangxiaoer;
+			}
+			
+			.counter6{
+				counter-reset: wangxiaoer 2;
+				font-size: 32px;
+				font-family: "微软雅黑";
+				color: #CD0000;
+			}
+			.counter6:before,
+			.counter6:after{
+				display: block;
+				content: counter(wangxiaoer, lower-roman);
+				counter-increment: wangxiaoer;
+			}
+			
+			.counter7{
+				counter-reset: wangxiaoer 2 wangxiaosan 3;
+				font-size: 32px;
+				font-family: "微软雅黑";
+				color: #CD0000;
+			}
+			.counter7:before{
+				content: counter(wangxiaoer) '\A' counter(wangxiaosan);
+				white-space: pre;
+			}
+			
+			.reset{
+				padding-left: 20px;
+				counter-reset: wangxiaoer;
+			}
+			.counter:before{
+				content: counters(wangxiaoer, '-') '. ';
+				counter-increment: wangxiaoer;
+			}
+			
+			.reset ~ .counter{
+				color: #CD0000;
+			}
+		</style>
+	</head>
+	<body>
+		<p>我叫王小二，字如其名，下面要出现的数字是</p>
+		<p class="counter1"></p>
+		
+		<p>我叫王小二，万万没有想到会出现另一个数字</p>
+		<p class="counter2"></p>
+		
+		<p>我本命王小二，万万没想到，我居然变成王小三</p>
+		<p class="counter3"></p>
+		<!--
+			counter-increment出现一次就是普照一次
+		-->
+		<p>共两次普照，一次普照加1，所以结果加2</p>
+		<p class="counter4"></p>
+		
+		<p>我叫王小二，万万没想到，计数器增加</p>
+		<p class="counter5"></p>
+		<!--
+			counter(name, style)。style和list-style-type的值一样
+		-->
+		<p>我叫王小二，万万没想到，我变成了罗马人</p>
+		<p class="counter6"></p>
+		<!--
+			有个content可以有多个counter()方法
+		-->
+		<p>我叫王小二，万万没想到，我还有一个兄弟</p>
+		<p class="counter7"></p>
+		<!--
+			counters(name, string)
+			其中string参数为字符串(需要引号包围，是必须参数)，表示子序号的连续字符串，例如1.1的string就是'.'
+		-->
+		<div class="reset">
+			<div class="counter">我是王小二
+				<div class="reset">
+					<div class="counter">我是王小二的大儿子</div>
+					<div class="counter">我是王小二的二儿子
+						<div class="reset">
+							<div class="counter">我是王小二的二儿子的大孙子</div>
+							<div class="counter">我是王小二的二儿子的二孙子</div>
+							<div class="counter">我是王小二的二儿子的小孙子</div>
+						</div>
+					</div>
+					<div class="counter">我是王小二的三儿子</div>
+				</div>
+			</div>
+			<div class="counter">我是王小三</div>
+			<div class="counter">我是王小四
+				<div class="reset">
+					<div class="counter">我是王小四的大儿子</div>
+				</div>
+			</div>
+		</div>
+		<!--
+			.reset与上面的.counter是兄弟关系而不是父子关系，虽然渲染出来没啥区别但是一个容器的counter-rest是唯一的，
+			一旦子元素出现counter-rest就会改变整个容器的嵌套关系，于是后面的"王小三""王小四"其实已经进入二级嵌套，所以
+			显示的是1-3和1-4
+		-->
+		<p>我叫王小二，万万没想到，子孙成群(反例)</p>
+		<div class="reset">
+			<div class="counter">我是王小二</div>
+			<div class="reset">
+				<div class="counter">我是王小二的大儿子</div>
+				<div class="counter">我是王小二的小儿子</div>
+				<div class="reset">
+					<div class="counter">我是王小二的二儿子的大孙子</div>
+					<div class="counter">我是王小二的二儿子的二孙子</div>
+					<div class="counter">我是王小二的二儿子的小孙子</div>
+				</div>
+				<div class="counter">我是王小二的三儿子</div>
+			</div>
+			<div class="counter">我是王小三</div>
+			<div class="counter">我是王小四</div>
+			<div class="reset">
+				<div class="counter">我是王小四的大儿子</div>
+			</div>
+		</div>
+	</body>
+</html>

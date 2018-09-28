@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				width: 280px;
+				outline: 1px solid #aaa;
+				text-align: center;
+			}
+			.box img{
+				height: 96px;
+			}
+			.box-1 img{
+				display: block;
+				margin: auto;
+			}
+			.box-2{
+				line-height: 0;
+			}
+			.box-3{
+				font-size: 0;
+			}
+			.box-4 img{
+				vertical-align: bottom;
+			}
+			.box2{
+				text-align: justify;
+				width: 300px;
+				line-height: 0;
+			}
+			.justify-fix{
+				display: inline-block;
+				width: 96px;
+				outline: 1px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+			任意一个块级元素，里面如有图，则块级元素高度基本要比图片的高度高
+			可以看到“幽零空白节点”基线对齐，字母x往下多于的行高嫁祸给图片了
+		-->
+		<div style="width: 280px;outline: 1px solid #aaa;text-align: center;">
+			<span style="background: #aaa;">x</span><img src="img/1.jpg" style="height: 96px;"/>
+		</div>
+		<!--
+			图片块状化
+		-->
+		<h4>图片block块状清除间隙：</h4>
+		<div class="box box-1">
+		    <img src="img/1.jpg">
+		</div>
+		<!--
+			容器line-height足够小，只要半行距小到字母x的下边缘或者再往上。比如line-height：0
+		-->
+		<h4>容器line-height：0</h4>
+		<div class="box box-2">
+		    <img src="img/1.jpg">
+		</div>
+		<!--
+			容器font-size足够小
+		-->
+		<h4>容器font-size:0清除间隙：</h4>
+		<div class="box box-3">
+		    <img src="img/1.jpg">
+		</div>
+		<!--
+			图片设置其他vertical-align属性
+		-->
+		<h4>图片vertial-align设置清除：</h4>
+		<div class="box box-4">
+		    <img src="img/1.jpg">
+		</div>
+		<!--
+			
+		-->
+		<div class="box2">
+			<img src="img/1.jpg" width="96px"/>
+			<img src="img/1.jpg" width="96px"/>
+			<img src="img/1.jpg" width="96px"/>
+			<img src="img/1.jpg" width="96px"/>
+			<i class="justify-fix"></i>
+			<i class="justify-fix"></i>
+			<i class="justify-fix"></i>
+		</div>
+	</body>
+</html>

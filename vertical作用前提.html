@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--
+			这种情况看上去是vertical-align没起作用，其实只是行框盒子前面的
+			“幽灵空白节点”高度太小			：
+		-->
+		<div style="height: 128px;background: #ccc;">
+			<img src="img/1.jpg" alt="" style="height: 96px;vertical-align: middle;"/>
+		</div>
+		<br />
+		<!--
+			如果我们设置一个足够行高的“幽灵空白节点”，就会看到vertical-align起作用
+		-->
+		<div style="height: 128px;background: #ccc;line-height: 128px;">
+			<img src="img/1.jpg" alt="" style="height: 96px;vertical-align: middle;"/>
+		</div>
+		<br />
+		<!--
+			tabel-cell无视行高是因为对table-cell而言，vertical-align起作用的是table-cell本身
+		-->
+		<div style="height: 128px;background: #ccc;display: table-cell;">
+			<img src="img/1.jpg" alt="" style="height: 96px;vertical-align: middle;"/>
+		</div>
+		<!--
+			但是vertical-align设置在table-cell元素上就可以垂直居中
+		-->
+		<br />
+		<div style="height: 128px;background: #ccc;display: table-cell;vertical-align: middle;">
+			<img src="img/1.jpg" alt="" style="height: 96px;"/>
+		</div>
+	</body>
+</html>

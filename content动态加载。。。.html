@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			dot{
+				display: inline-block;
+				height: 1em;
+				line-height: 1;
+				text-align: left;
+				vertical-align: -0.25rem;
+				overflow: hidden;
+			}
+			dot:before{
+				display: block;
+				content: '...\A..\A.';
+				white-space: pre-wrap;
+				animation: dot 3s infinite step-start both;
+			}
+			@keyframes dot{
+				33% {transform: translateY(-2em);}
+				66% {transform: translateY(-1em);}
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+			原理：插入语3行内容，分别是3个点、2个点、1个点。通过transform垂直位置，依次展示没一行的内容			
+		-->
+		<!--
+			???：为什么用<dot>这个元素?
+			???：为什么使用::before，可不可以用:after?
+			???：从content属性值来看，是3个点在第1行，而第1个点反而在最后一行，为啥这么处理?
+			???：这里white-space值为啥使用的是pre-wrap而不是pre?
+		-->
+		<!--
+			<1>；<dot>是自定义的一个标签元素，除了简约、语义化明显外，更重要的是方便向下兼容，
+					 IE8等低版本浏览器不认识自定义的HTML标签，因此会乖乖显示静态的3个点，而忽略css代码
+			<2>：伪元素使用::before同时display设置block。是为了在高版本浏览器下原来的3个点
+					 推到最下面，不会影响content的3行内容显示，如果使用过::after就比较难实现了
+			<3>：3个点在第一行的目的在于兼容IE9浏览器，因为IE9认识<dot>以及::before，但不支持animation
+					 属性，为了IE9也能正常显示3个点，就把第3个点放在第一行
+			<4>：pre-wrap改成pre效果也是一样的 		 
+		-->
+		<!--
+			'\A'是不区分大小写的，其次，'\D'也能实现换行，但是要想上下行对齐，需要用在::before
+			伪元素上，因为CR是将光标移动到当前行的开头，而LF的浆光标垂直移动到下一行
+		-->
+		正在加载<dot>...</dot>
+	</body>
+</html>

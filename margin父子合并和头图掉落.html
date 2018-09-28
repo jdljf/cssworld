@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			p{
+				margin: 1em 0;
+			}
+			.container{
+				max-width: 1920px;
+				height: 384px;
+				background: url(img/cover-5-1.jpg) no-repeat center;
+			}
+			.container > h2{
+				font-size: 128px;
+				margin-top: 100px;
+				color: #fff;
+			}
+			.container > h1{
+				font-size: 128px;
+				margin-bottom: 100px;
+				color: #fff;
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+			margin合并的3种情况
+			1. 相邻兄弟元素margin合并
+		-->
+		<p>第一行</p>
+		<p>第二行</p>
+		<br />
+		<!--
+			2. 父级和第一个/最后一个子元素
+		-->
+		<h3>以下三种情况效果是一样的</h3>
+		<div class="father">
+			<div class="son" style="margin-top: 80px;"></div>
+		</div>
+		<br />
+		<div class="father" style="margin-top: 80px;">
+			<div class="son"></div>
+		</div>
+		<br />
+		<div class="father" style="margin-top: 80px;">
+			<div class="son" style="margin-top: 80px;"></div>
+		</div>
+		<h1 style="color: red;">有问题的图</h1>
+		<div class="container">
+			<h2>CSS世界</h2>
+		</div>
+		<!--
+			阻止margin-top合并的表现
+			1. 父元素设置为块级格式化上下文元素
+			2. 父元素设置border-top值（好像自己试验了不行？）
+			3. 父元素设置padding-top值
+			4. 父元素和第一个子元素之间添加内联元素进行分割
+		-->
+		<h1 style="color: red;">阻止margin-top合并的表现</h1>
+		<div>父元素设置为块级格式化上下文元素</div>
+		<div class="container" style="overflow: hidden;">
+			<h2>CSS世界</h2>
+		</div>
+		<div>父元素设置border-top值加上solid</div>
+		<div class="container" style="border-top: 1px solid;">
+			<h2>CSS世界</h2>
+		</div>
+		<div>父元素设置padding-top值</div>
+		<div class="container" style="padding-top: 1px;">
+			<h2>CSS世界</h2>
+		</div>
+		<div>父元素和第一个子元素之间添加内联元素进行分割span里面要有内容</div>
+		<div class="container" style="padding-top: 1px;">
+			<span>事实上</span>
+			<h2>CSS世界</h2>
+		</div>
+		
+		<!--
+			对于margin-bottom合并，可以进行一下操作
+			1. 父元素设置为块状格式化上下文元素
+			2. 父元素设置border-bottom值（好像自己试验了不行）
+			3. 父元素设置padding-bottom值
+			4. 父元素和最后一个子元素之间添加内联元素进行分割
+			5. 父元素设置height、min-height或max-height
+		-->
+		<!--<h1 style="color: red;">对于margin-bottom合并，可以进行一下操作</h1>
+		<div>父元素设置为块状格式化上下文元素</div>
+		<div class="container" style="overflow: hidden;">
+			<h1>CSS世界</h1>
+		</div>
+		<div>父元素设置border-bottom值（好像自己试验了不行）</div>
+		<div class="container" style="border-bottom: 30px;">
+			<h1>CSS世界</h1>
+		</div>
+		<div>父元素设置padding-bottom值（好像自己试验了不行?）</div>
+		<div class="container" style="padding-bottom: 1px;">
+			<h1>CSS世界</h1>
+		</div>
+		<div>父元素和最后一个子元素之间添加内联元素进行分割</div>
+		<div class="container">
+			<h1>CSS世界</h1>
+			<span>事实上</span>
+		</div>-->
+		<div>空块级元素的margin合并</div>
+		<div style="overflow: hidden; background: red;">
+			<div style="margin: 10px 0;"></div>
+		</div>
+	</body>
+</html>

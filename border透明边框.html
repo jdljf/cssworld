@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				 height: 200px;
+				 border-right: 50px solid transparent;
+				 /*background-attachment:fixed;*/
+				 background-position: 100% 50%;
+				 /*background: url(img/0.jpg)就不行*/
+				 background-image: url(img/0.jpg);
+				 background-repeat: no-repeat;
+				 background-size: 50px;
+			}
+			input[type="search"] {
+			    width: 200px; height: 40px;
+			    padding: 10px 40px 10px 10px;
+			    border: 1px solid #ccc;
+			    box-sizing: border-box;
+			}
+			.icon-clear {
+			    width: 16px; height: 16px;
+			    margin: 1px 0 0 -38px;
+			    border: 11px solid transparent;
+			    border-radius: 50%;
+			    background: #999;
+			    color: white;
+			    background-clip: padding-box;
+			    position: absolute;
+			    visibility: hidden;
+			}
+			.icon-clear:before {
+			    content: "×";
+			}
+			input:valid + .icon-clear { 
+			    visibility: visible;
+			}
+			.button{
+				display: inline-block;
+				line-height: 36px;
+				padding: 0 40px;
+				color: #FFFFFF;
+				background-color: #CD0000;
+				position: relative;
+			}
+			.button:before,
+			.button:after{
+				content: "";
+				position: absolute;
+				left:0 ;right: 0;
+				border-style: solid;
+			}
+			.button:before{
+				top: -2px;
+				border-width: 0 2px 2px;
+				border-color: transparent transparent #CD0000;
+			}
+			.button:after{
+				bottom: -2px;
+				border-width: 2px 2px 0;
+				border-color: #CC0000 transparent transparent;
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+			一个宽度不固定的元素，需要在距离右边缘50px位置设置背景图
+			但是background是相对于左上角定位的
+		-->
+		<h1>右下方background定位技巧</h1>
+		<div class="box"></div>
+		<h1>优雅地增加点击区域大小</h1>
+		<input type="search" name="search" id="search" value="我是初始值" required=/>
+		<label for="search" class="icon-clear"></label>
+		<h1>border属性绘制三角形</h1>
+		<div style="width: 0;border: 10px solid;border-color: #f30 transparent transparent;"></div>
+		<h1>border四色边框</h1>
+		<div style="width: 10px;height: 10px;border: 10px solid;border-color: #f30 #00f #396 #0f0;"></div>
+		<h1>设置左右下三个方向边框为透明，就是一个梯形</h1>
+		<div style="width: 10px;height: 10px;border: 10px solid;border-color: #f30 transparent transparent;"></div>
+		<h1>宽度从10px变成0，梯形下方开口从10px变成0</h1>
+		<div style="width: 0;border: 10px solid;border-color: #f30 transparent transparent;"></div>
+		<h1>让三角形垂直方向的边框宽度更宽一点</h1>
+		<div style="width: 0;border-width: 10px 20px;border-style: solid;border-color: #f30 transparent transparent;"></div>
+		<h1>让三角形仅仅是两个方向透明</h1>
+		<div style="width: 0;border-width: 10px 20px;border-style: solid;border-color: #f30 #f30 transparent transparent;"></div>
+		<h1>基于border实现小圆角效果实例</h1>
+		<a href="" class="button">我是按钮</a>
+		<script type="text/javascript">
+			var eleLabel = document.querySelector('label[for="search"]'),
+			eleSearch = document.getElementById('search')
+			
+			if (eleLabel && eleSearch) {
+				eleLabel.onclick = function () {
+					eleSearch.value = ""
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h1>1. display计算值inline的非替换元素的垂直margin无效</h1>
+		<!--内联替换元素垂直margin有效，并且没有合并问题，所以图片永远不会margin合并-->
+		<img src="img/0.jpg" alt="" style="margin: 10px;"/>
+		<div>ppppppp</div>
+		<!--可以看到div下面的span的margin虽然在控制台可以看到但却是没有效果的-->
+		<span style="margin: 10px;">888</span>
+		<h1>表格中的tr和td元素或者设置了display计算值是table-cell或table-row的元素的margin都是无效的。
+		但是如果计算值是table-caption、table或者inline-table则没有问题，可以通过margin控制外边距，甚至
+		::first-letter伪元素也可以解析margin</h1>
+		<h1>3. margin合并的时候，更改margin值可能是没什么效果的</h1>
+		<h1>除非例子的子元素的margin-top>父元素的margin-top</h1>
+		<div style="margin-top: 50px;">
+			<div style="margin-top: 30px;"></div>
+		</div>
+		<h1>4. 绝对定位元素非定位方向的margin无效</h1>
+		<!--以下例子Img的margin-right无效-->
+		<div style="position: relative;width: 300px;height: 300px;overflow: auto;">
+			<img src="img/0.jpg" style="position: absolute;top: 10%;left: 30%;margin-right: 30px;
+					width: 70%;"/>
+		</div>
+		<h1>5. 定高容器的子元素的margin-bottom或者宽度定死的子元素的margin-right的定位失败</h1>
+		<div style="height: 100px;">
+			<div style="height: 80px;margin-bottom: 100px;">margin-bottom无效</div>
+		</div>
+		<div style="height: 100px;">
+			<div style="height: 100%;width: 100px;margin-right: 50px;">margin-right无效</div>
+		</div>
+		<h1>内联特性导致的margin无效</h1>
+		<div>
+			<img src="img/0.jpg" style="height: 50px;margin-top: -200px;"/>
+		</div>
+	</body>
+</html>
