@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background: yellow;
+				/* transiton: 过渡属性 过渡所需要时间 过渡动画函数 过渡延迟时间;  */
+				/* 简写 transition: width 1s linear 2s;*/
+				transition-property: width;
+				transition-duration: 1s;
+				transition-timing-function: linear;
+				transition-delay: 2s;
+				/* firefox 4 */
+				-moz-transition-property: width;
+				-moz-transition-duration: 1s;
+				-moz-transition-timing-function: linear;
+				-moz-transition-delay: 2s;
+				/* safari and chrome */
+				-webkit-transition-property: width;
+				-webkit-transition-duration: 1s;
+				-webkit-transition-timing-function: linear;
+				-webkit-transition-delay: 2s;
+				/* opera */
+				-o-transition-property: width;
+				-o-transition-duration: 1s;
+				-o-transition-timing-function: linear;
+				-o-transition-delay: 2s;
+			}
+			/* div:hover{
+				width: 300px;
+			} */
+		</style>
+	</head>
+	<body>
+		<div id="div"></div>
+
+		<p>请把鼠标指针放到黄色的 div 元素上，来查看过渡效果。</p>
+
+		<p><b>注释：</b>本例在 Internet Explorer 中无效。</p>
+		<input id="button" type="button" value="点击动画" placeholder="点击动画">
+		<script>
+			var b = document.getElementById('button');
+			var d = document.getElementById('div');
+
+			b.onclick = function () {
+				
+				d.style.width = '300px';
+			}
+
+			d.onmouseover = function () {
+				d.style.width = '300px';
+			}
+			d.onmouseout = function () {
+				d.style.width = '100px';
+			}
+		</script>
+	</body>
+</html>
