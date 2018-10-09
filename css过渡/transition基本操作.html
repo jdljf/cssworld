@@ -16,28 +16,29 @@
 				（4）一条transition规则，只能定义一个属性的变化，不能涉及多个属性。 
 				CSS Animation就是为了解决这些问题而提出的。 */
 
-				transition-property: width;	/* 需要过渡的属性 */
-				transition-duration: 1s;	/* 过渡需要的时间 */
+				transition-property: all;	/* 需要过渡的属性 */
+				transition-duration: 2s;	/* 过渡需要的时间 */
 				transition-timing-function: linear;	/* 过渡动画的函数(速度) */
-				transition-delay: 2s;	/* 过渡开始时的延迟时间 */
+				transition-delay: 1s;	/* 过渡开始时的延迟时间 */
 				/* firefox 4 */
-				-moz-transition-property: width;
-				-moz-transition-duration: 1s;
+				-moz-transition-property: all;
+				-moz-transition-duration: 2s;
 				-moz-transition-timing-function: linear;
-				-moz-transition-delay: 2s;
+				-moz-transition-delay: 1s;
 				/* safari and chrome */
-				-webkit-transition-property: width;
-				-webkit-transition-duration: 1s;
+				-webkit-transition-property: all;
+				-webkit-transition-duration: 2s;
 				-webkit-transition-timing-function: linear;
-				-webkit-transition-delay: 2s;
+				-webkit-transition-delay: 1s;
 				/* opera */
-				-o-transition-property: width;
-				-o-transition-duration: 1s;
+				-o-transition-property: all;
+				-o-transition-duration: 2s;
 				-o-transition-timing-function: linear;
-				-o-transition-delay: 2s;
+				-o-transition-delay: 1s;
 			}
 			/* div:hover{
 				width: 300px;
+				height: 300px;
 			} */
 		</style>
 	</head>
@@ -52,16 +53,18 @@
 			var b = document.getElementById('button');
 			var d = document.getElementById('div');
 
-			b.onclick = function () {
-				
+			b.onclick = function () {				
 				d.style.width = '300px';
+				d.style.height = '300px';
 			}
 
 			d.onmouseover = function () {
 				d.style.width = '300px';
+				d.style.height = '300px';
 			}
 			d.onmouseout = function () {
 				d.style.width = '100px';
+				d.style.height = '100px';
 			}
 		</script>
 	</body>
